@@ -1,47 +1,596 @@
 ---
-import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
-import { getListPage } from "@/lib/contentParser.astro";
-import { markdownify } from "@/lib/utils/textConverter";
-import { render } from "astro:content";
-
-const aboutIndex = await getListPage("about", "-index");
-const { Content } = await render(aboutIndex);
-const { title, description, meta_title, image } = aboutIndex.data;
-
-if (aboutIndex.data.draft) {
-  return Astro.redirect("/404");
-}
+import { FaBehance, FaDribbble, FaLinkedinIn } from "react-icons/fa";
+import {
+  IoChatbubbleEllipsesOutline,
+  IoFlashOutline,
+  IoLayersOutline,
+  IoSearchOutline,
+} from "react-icons/io5";
 ---
 
 <Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
+  title="About"
+  meta_title="About Us | Zeon Studio"
+  description="We transform complex ideas into radical simplicity."
 >
-  <section class="section-sm">
+  <!-- Hero (The Hook) -->
+  <section class="section pt-14">
     <div class="container">
       <div class="row justify-center">
-        <div class="md:col-10 lg:col-8">
-          {
-            image && (
-              <ImageMod
-                class="mx-auto mb-6 rounded"
-                src={image}
-                width={1200}
-                height={600}
-                alt={title}
-                format="webp"
-              />
-            )
-          }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
-          <div class="content">
-            <Content />
+        <div class="lg:col-9 xl:col-8 text-center">
+          <div class="relative mx-auto mb-10 max-w-[920px]">
+            <div class="hero-orb pointer-events-none" aria-hidden="true" />
+            <div class="relative">
+              <p class="mb-3 tracking-[0.22em] text-sm font-semibold text-text-light dark:text-darkmode-text">
+                WHO WE ARE
+              </p>
+              <h1 class="mb-5 text-h2-sm md:text-h1 text-balance">
+                We transform complex ideas into radical simplicity.
+              </h1>
+              <p class="mx-auto max-w-[64ch] text-lg md:text-xl">
+                Zeon Studio is a design-led agency dedicated to prioritizing
+                business value and user intent. We build digital products that
+                resonate through clarity and purpose.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Vision & Mission (The Core) -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row items-center justify-between">
+        <div class="mb-10 md:col-6 lg:col-6 md:mb-0">
+          <div class="media-loop relative overflow-hidden rounded-xl border border-border bg-light p-10 dark:border-darkmode-border dark:bg-darkmode-light">
+            <div class="media-loop__glow" aria-hidden="true" />
+            <div class="relative">
+              <p class="mb-2 text-sm font-semibold tracking-[0.18em] text-text-light dark:text-darkmode-text">
+                THE CORE
+              </p>
+              <h2 class="mb-2">Minimal form. Maximum function.</h2>
+              <p class="mb-0 max-w-[58ch]">
+                A calm surface that hides serious engineering. We obsess over
+                performance, accessibility, and frictionless journeys.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-6 lg:col-5">
+          <div class="rounded-xl border border-border p-8 dark:border-darkmode-border">
+            <p class="mb-2 text-sm font-semibold tracking-[0.18em] text-text-light dark:text-darkmode-text">
+              MISSION
+            </p>
+            <p class="mb-6 text-lg md:text-xl font-semibold text-text-dark dark:text-darkmode-text-dark">
+              To engineer websites and digital products that don't just look
+              stunning, but perform relentlessly.
+            </p>
+            <p class="mb-2 text-sm font-semibold tracking-[0.18em] text-text-light dark:text-darkmode-text">
+              VISION
+            </p>
+            <p class="mb-0">
+              To redefine the digital landscape by creating a perfect harmony
+              between minimalist aesthetics and high-level functionality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Impact (Social Proof) -->
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
+            <div>
+              <div class="text-4xl md:text-5xl font-secondary font-bold text-text-dark dark:text-darkmode-text-dark">
+                250+
+              </div>
+              <div class="mt-2 text-sm font-semibold text-text-light dark:text-darkmode-text">
+                Projects Delivered
+              </div>
+            </div>
+            <div>
+              <div class="text-4xl md:text-5xl font-secondary font-bold text-text-dark dark:text-darkmode-text-dark">
+                15+
+              </div>
+              <div class="mt-2 text-sm font-semibold text-text-light dark:text-darkmode-text">
+                Countries Served
+              </div>
+            </div>
+            <div>
+              <div class="text-4xl md:text-5xl font-secondary font-bold text-text-dark dark:text-darkmode-text-dark">
+                98%
+              </div>
+              <div class="mt-2 text-sm font-semibold text-text-light dark:text-darkmode-text">
+                Client Satisfaction
+              </div>
+            </div>
+            <div>
+              <div class="text-4xl md:text-5xl font-secondary font-bold text-text-dark dark:text-darkmode-text-dark">
+                04+
+              </div>
+              <div class="mt-2 text-sm font-semibold text-text-light dark:text-darkmode-text">
+                Years of Crafting Excellence
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values (What Sets Us Apart) -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="mb-10 text-center">
+            <p class="mb-3 tracking-[0.22em] text-sm font-semibold text-text-light dark:text-darkmode-text">
+              WHAT SETS US APART
+            </p>
+            <h2 class="mb-0">Core values that shape every build</h2>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-6">
+            <div class="value-card md:col-span-3">
+              <div class="value-icon" aria-hidden="true">
+                <IoFlashOutline />
+              </div>
+              <h3 class="h5 mb-2">Intent-Driven Design</h3>
+              <p class="mb-0">
+                Every pixel serves a purpose. We don't just decorate; we
+                communicate.
+              </p>
+            </div>
+            <div class="value-card md:col-span-3">
+              <div class="value-icon" aria-hidden="true">
+                <IoChatbubbleEllipsesOutline />
+              </div>
+              <h3 class="h5 mb-2">Radical Transparency</h3>
+              <p class="mb-0">
+                We believe in open collaboration and honest communication at
+                every project milestone.
+              </p>
+            </div>
+            <div class="value-card md:col-span-4">
+              <div class="value-icon" aria-hidden="true">
+                <IoLayersOutline />
+              </div>
+              <h3 class="h5 mb-2">Modern Tech Stack</h3>
+              <p class="mb-0">
+                We leverage the speed and security of Astro, Hugo, and Next.js
+                to build future-proof platforms.
+              </p>
+            </div>
+            <div class="value-card md:col-span-2">
+              <div class="value-icon" aria-hidden="true">
+                <IoSearchOutline />
+              </div>
+              <h3 class="h5 mb-2">Minimalist Aesthetic</h3>
+              <p class="mb-0">
+                Stripping away the noise to amplify your brand’s core message.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership (The People) -->
+  <section class="section-sm bg-gradient">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="mb-10 text-center">
+            <p class="mb-3 tracking-[0.22em] text-sm font-semibold text-text-light dark:text-darkmode-text">
+              THE PEOPLE
+            </p>
+            <h2 class="mb-0">Leadership</h2>
+          </div>
+
+          <div class="row justify-center">
+            <div class="md:col-8 lg:col-6">
+              <div class="leader-card rounded-xl border border-border bg-body p-8 dark:border-darkmode-border dark:bg-darkmode-body">
+                <div class="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
+                  <div class="leader-avatar" aria-hidden="true">
+                    <span class="leader-avatar__initials">ZS</span>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-sm font-semibold tracking-[0.18em] text-text-light dark:text-darkmode-text">
+                      FOUNDER &amp; CEO
+                    </div>
+                    <div class="mt-1 text-xl font-bold text-text-dark dark:text-darkmode-text-dark">
+                      [Name]
+                    </div>
+                    <div class="mt-2 font-semibold text-text-dark dark:text-darkmode-text-dark">
+                      “Design is not what it looks like; it's how it works.”
+                    </div>
+                    <ul class="mt-5 flex items-center justify-center gap-3 sm:justify-start">
+                      <li>
+                        <a
+                          class="social-pill"
+                          href="#"
+                          aria-label="Dribbble"
+                          rel="noopener"
+                        >
+                          <FaDribbble />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          class="social-pill"
+                          href="#"
+                          aria-label="Behance"
+                          rel="noopener"
+                        >
+                          <FaBehance />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          class="social-pill"
+                          href="#"
+                          aria-label="LinkedIn"
+                          rel="noopener"
+                        >
+                          <FaLinkedinIn />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-4 text-center text-sm text-text-light dark:text-darkmode-text">
+                Tip: replace <span class="font-semibold">[Name]</span> and the
+                social links with real profile URLs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology (Our Workflow) -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="mb-10 text-center">
+            <p class="mb-3 tracking-[0.22em] text-sm font-semibold text-text-light dark:text-darkmode-text">
+              OUR WORKFLOW
+            </p>
+            <h2 class="mb-0">Methodology</h2>
+          </div>
+
+          <div class="workflow rounded-xl border border-border bg-light p-8 dark:border-darkmode-border dark:bg-darkmode-light">
+            <ol class="workflow-grid">
+              <li class="workflow-step">
+                <div class="workflow-num">01</div>
+                <div class="workflow-body">
+                  <div class="workflow-title">Discover</div>
+                  <div class="workflow-text">
+                    Deep-diving into your goals, audience, and core intent.
+                  </div>
+                </div>
+              </li>
+              <li class="workflow-step">
+                <div class="workflow-num">02</div>
+                <div class="workflow-body">
+                  <div class="workflow-title">Strategy</div>
+                  <div class="workflow-text">
+                    Mapping out user journeys and architectural wireframes.
+                  </div>
+                </div>
+              </li>
+              <li class="workflow-step">
+                <div class="workflow-num">03</div>
+                <div class="workflow-body">
+                  <div class="workflow-title">Design</div>
+                  <div class="workflow-text">
+                    Crafting high-fidelity 3D assets and minimalist UI in Figma.
+                  </div>
+                </div>
+              </li>
+              <li class="workflow-step">
+                <div class="workflow-num">04</div>
+                <div class="workflow-body">
+                  <div class="workflow-title">Launch</div>
+                  <div class="workflow-text">
+                    Deploying high-performance, clean code via Tailwind CSS and
+                    Astro.
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA (The Conversion) -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="rounded-xl bg-[#0b0b0b] px-6 py-14 text-center text-white dark:bg-[#0b0b0b] md:px-10 md:py-16">
+        <h2 class="mb-3 text-white">Ready to simplify your digital presence?</h2>
+        <p class="mx-auto mb-8 max-w-[60ch] text-white/80">
+          Let’s build something meaningful together.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded border border-transparent bg-amber-400 px-6 py-3 font-semibold text-black transition hover:bg-amber-300"
+        >
+          Book a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hero-orb {
+      position: absolute;
+      inset: -40px -20px;
+      margin: 0 auto;
+      max-width: 920px;
+      border-radius: 9999px;
+      background:
+        radial-gradient(60% 60% at 30% 30%, rgba(255, 255, 255, 0.6), transparent 60%),
+        radial-gradient(70% 70% at 70% 70%, rgba(255, 255, 255, 0.35), transparent 60%),
+        conic-gradient(
+          from 180deg,
+          rgba(255, 255, 255, 0.0),
+          rgba(255, 255, 255, 0.35),
+          rgba(255, 255, 255, 0.0)
+        );
+      filter: blur(10px);
+      opacity: 0.85;
+      transform: perspective(900px) rotateX(18deg) rotateY(-14deg);
+      animation: zeon-orb 14s linear infinite;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    :global(.dark) .hero-orb {
+      background:
+        radial-gradient(60% 60% at 30% 30%, rgba(255, 255, 255, 0.14), transparent 60%),
+        radial-gradient(70% 70% at 70% 70%, rgba(255, 255, 255, 0.10), transparent 60%),
+        conic-gradient(
+          from 180deg,
+          rgba(255, 255, 255, 0.0),
+          rgba(255, 255, 255, 0.18),
+          rgba(255, 255, 255, 0.0)
+        );
+      opacity: 0.9;
+      box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    @keyframes zeon-orb {
+      0% {
+        transform: perspective(900px) rotateX(18deg) rotateY(-14deg) rotate(0deg);
+      }
+      100% {
+        transform: perspective(900px) rotateX(18deg) rotateY(-14deg) rotate(360deg);
+      }
+    }
+
+    .media-loop__glow {
+      position: absolute;
+      inset: -80px;
+      background:
+        radial-gradient(40% 40% at 30% 40%, rgba(18, 18, 18, 0.18), transparent 60%),
+        radial-gradient(45% 45% at 70% 60%, rgba(18, 18, 18, 0.12), transparent 62%);
+      filter: blur(14px);
+      transform: rotate(-12deg);
+    }
+
+    :global(.dark) .media-loop__glow {
+      background:
+        radial-gradient(40% 40% at 30% 40%, rgba(255, 255, 255, 0.14), transparent 60%),
+        radial-gradient(45% 45% at 70% 60%, rgba(255, 255, 255, 0.10), transparent 62%);
+    }
+
+    .value-card {
+      border-radius: 0.75rem;
+      border: 1px solid var(--color-border);
+      background: rgba(246, 246, 246, 0.65);
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    :global(.dark) .value-card {
+      background: rgba(34, 34, 34, 0.55);
+      border-color: var(--color-darkmode-border);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .value-icon {
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      color: var(--color-text-dark);
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    :global(.dark) .value-icon {
+      color: var(--color-darkmode-text-dark);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.38),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .value-icon :global(svg) {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .leader-avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 1rem;
+      display: grid;
+      place-items: center;
+      filter: grayscale(1);
+      transition: filter 240ms ease, transform 240ms ease;
+      background:
+        linear-gradient(135deg, rgba(18, 18, 18, 0.18), rgba(18, 18, 18, 0.06)),
+        radial-gradient(60% 60% at 30% 30%, rgba(255, 255, 255, 0.5), transparent 60%);
+      border: 1px solid var(--color-border);
+    }
+
+    :global(.dark) .leader-avatar {
+      border-color: var(--color-darkmode-border);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04)),
+        radial-gradient(60% 60% at 30% 30%, rgba(255, 255, 255, 0.14), transparent 60%);
+    }
+
+    .leader-card:hover .leader-avatar {
+      filter: grayscale(0);
+      transform: translateY(-2px);
+    }
+
+    .leader-avatar__initials {
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--color-text-dark);
+    }
+
+    :global(.dark) .leader-avatar__initials {
+      color: var(--color-darkmode-text-dark);
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 0.75rem;
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--color-text-dark);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    :global(.dark) .social-pill {
+      border-color: var(--color-darkmode-border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--color-darkmode-text-dark);
+    }
+
+    .social-pill:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    :global(.dark) .social-pill:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .workflow-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .workflow-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+      }
+    }
+
+    .workflow-step {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    :global(.dark) .workflow-step {
+      border-color: rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    @media (min-width: 768px) {
+      .workflow-step {
+        border: none;
+        background: transparent;
+        border-radius: 0;
+        padding: 0 1rem;
+      }
+
+      .workflow-step:not(:last-child) {
+        border-right: 1px solid var(--color-border);
+      }
+
+      :global(.dark) .workflow-step:not(:last-child) {
+        border-right-color: var(--color-darkmode-border);
+      }
+    }
+
+    .workflow-num {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--color-text-dark);
+      line-height: 1;
+      min-width: 2.2rem;
+    }
+
+    :global(.dark) .workflow-num {
+      color: var(--color-darkmode-text-dark);
+    }
+
+    .workflow-title {
+      font-weight: 800;
+      color: var(--color-text-dark);
+    }
+
+    :global(.dark) .workflow-title {
+      color: var(--color-darkmode-text-dark);
+    }
+
+    .workflow-text {
+      margin-top: 0.25rem;
+      color: var(--color-text);
+    }
+
+    :global(.dark) .workflow-text {
+      color: var(--color-darkmode-text);
+    }
+  </style>
 </Base>
